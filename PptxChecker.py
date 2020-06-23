@@ -305,7 +305,7 @@ class AbstractFileChecker(ABC):
         else:
             if (problem['pos'] + problem['len']) < len(text):
                 post_part = text[problem['pos']+problem['len']:] 
-            else: ###If there is mistake in the last symbol
+            else: ###If the mistake is in the last symbol
                 post_part = '' ##the post_part should be ''
             text = text[:problem['pos']] + problem['s'][problem['choice']] + post_part
         return(text)
