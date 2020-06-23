@@ -526,7 +526,11 @@ class SpellChecker(AbstractAspectChecker):
         else:
             raise Exception('В тексте не должно быть блоков длиннее '+
                             str(CHECKER_LIMIT) + ' символов')
-        
+            
+    def _get_text_to_show(self, text, problem):
+        text_fragment = super()._get_text_to_show(text, problem)
+        word_note = 'Опечатка в слове ' + problem['word'] + ': '
+        return word_note + text_fragment      
 
 class TypographyChecker(AbstractAspectChecker):
     '''
